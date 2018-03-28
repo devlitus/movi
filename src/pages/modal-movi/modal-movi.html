@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>{{titulo}}</ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (tap)="cerrarModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content card-background-page" padding>
+  <ion-grid *ngFor="let md of detalles">
+    <ion-row>
+      <ion-col>
+        <img [src]="urlImagen + md.imagen" alt="">
+      </ion-col>
+      <ion-col ion-text color="secondary">
+        <p ion-text color="secondary">Título: <br><span ion-text color="texto">{{md.titulo}}</span></p>
+        <p ion-text color="secondary">Fecha de lanzamiento: <br><span ion-text color="texto">{{md.fecha | date:'dd-MM-yyyy'}}</span></p>
+        <p ion-text color="secondary">Duración de la película: <br><span ion-text color="texto">{{md.tiempo}} minutos</span></p>
+      </ion-col>
+    </ion-row>
+    <h6 ion-text color="secondary">Sinopsis</h6>
+    <ion-row class="borders">
+      <ion-col ion-text color="texto" *ngIf="md.sinopsis !== '' else alert">
+        {{md.sinopsis}}
+      </ion-col>
+    </ion-row>
+    <h6 ion-text color="secondary">Productoras</h6>
+    <ion-row class="borders" nowrap justify-content-around>
+      <ion-col *ngFor="let c of companias">
+        <ion-card>
+          <img [src]="logo+c.logo" alt="">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <h6 ion-text color="secondary">Popular</h6>
+    <ion-row class="borders">
+      <ion-col>
+        <span ion-text color="texto">{{md.popular}}</span>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+  
+</ion-content>
+<ng-template #alert>
+  <p ion-text color="danger">Disculpen las molestias</p>
+</ng-template>

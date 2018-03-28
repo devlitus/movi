@@ -1,0 +1,69 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title text-center>Detalles series</ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (tap)="cerrarModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content" padding>
+  <ion-grid *ngFor="let d of detail">
+    <ion-row>
+      <ion-col>
+        <img [src]="imagen + d.poster" alt="">
+      </ion-col>
+      <ion-col>
+        <p ion-text color="secondary">Título original <br> <span ion-text color='texto'>{{d.titulo}}</span></p>
+        <p ion-text color="secondary">Fecha de lanzamiento <br> <span ion-text color='texto'>{{d.prime_emision | date: 'dd-MM-yyyy'}}</span></p>
+        <p ion-text color="secondary">Temporadas <br> <span ion-text color='texto'>{{d.temporadas}}</span></p>
+        <p ion-text color="secondary">Popularidad <br> <span ion-text color='texto'>{{d.popularida}}</span></p>
+      </ion-col>
+    </ion-row>
+    <h6 ion-text color="secondary">Sinopsis</h6>
+    <ion-row class="border">
+      <span ion-text color='texto'>{{d.sinopsis}}</span>
+    </ion-row>
+    <h6 ion-text color="secondary">Creado por</h6>
+    <ion-row class="border" nowrap justify-content-around>
+      <ion-col *ngFor="let c of creadores" align-self-end>
+        <ion-card color="alterna" >
+          <img [src]="profile + c.foto" alt="">
+          <p text-center>{{c.nombre}}</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <h6 ion-text color="secondary">Productoras</h6>
+    <ion-row class="border" wrap justify-content-around>
+      <ion-col *ngFor="let c of companias">
+        <ion-list>
+          <ion-item  color="alterna">
+              <ion-thumbnail item-start>
+                <img [src]="logo + c.logo" alt="">
+              </ion-thumbnail>
+              <p text-center>{{c.name}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <h6 ion-text color="secondary">Temporadas</h6>
+    <ion-row justify-content-around>
+      <ion-col *ngFor="let t of temporadas">
+        <ion-list>
+          <ion-item color="alterna">
+            <ion-thumbnail item-start>
+              <img [src]="imagen + t.poster" alt="">
+            </ion-thumbnail>
+            <p>{{t.name}}</p>
+            <p>{{t.fecha | date: 'dd-MM-yyyy'}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row> 
+  </ion-grid>
+</ion-content>
