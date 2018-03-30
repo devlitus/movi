@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 //providers
 import { MoviProvider } from "../../providers/movi/movi";
 import { ConfigProvider } from '../../providers/config/config';
 
-@IonicPage()
 @Component({
   selector: 'page-modal-movi',
   templateUrl: 'modal-movi.html',
@@ -36,7 +35,7 @@ export class ModalMoviPage {
   setConfig(data){
     let config = data;
     let base_url = config.base_url;
-    let profile_sizes =config.profile_sizes[0];
+    // let profile_sizes =config.profile_sizes[0];
     let poster = config.poster_sizes[1];
     let logo = config.logo_sizes[2]; 
     this.urlImagen = base_url+poster;
@@ -53,7 +52,7 @@ export class ModalMoviPage {
   }
   setDetailMovi(data){
     let detail;
-    let genro;
+    // let genro;
     let companias = data.production_companies;
     this.detalleCompania(companias);
     console.log(data);
