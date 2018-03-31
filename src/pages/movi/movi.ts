@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavParams, ModalController, InfiniteScroll } from 'ionic-angular';
+import { IonicPage, NavParams, ModalController, InfiniteScroll } from 'ionic-angular';
 //Providers
 import { ConfigProvider } from "../../providers/config/config";
 import { MoviProvider } from "../../providers/movi/movi";
 //pages
 import { ModalMoviPage } from "../index-page";
 
+@IonicPage()
 @Component({
   selector: 'page-movi',
   templateUrl: 'movi.html',

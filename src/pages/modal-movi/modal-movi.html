@@ -21,6 +21,8 @@
         <p ion-text color="secondary">Título: <br><span ion-text color="texto">{{md.titulo}}</span></p>
         <p ion-text color="secondary">Fecha de lanzamiento: <br><span ion-text color="texto">{{md.fecha | date:'dd-MM-yyyy'}}</span></p>
         <p ion-text color="secondary">Duración de la película: <br><span ion-text color="texto">{{md.tiempo}} minutos</span></p>
+        <p ion-text color="secondary">Popularidad: <br><span ion-text color="texto">{{md.popular}}</span></p>
+        
       </ion-col>
     </ion-row>
     <h6 ion-text color="secondary">Sinopsis</h6>
@@ -37,13 +39,25 @@
         </ion-card>
       </ion-col>
     </ion-row>
-    <h6 ion-text color="secondary">Popular</h6>
+    <h6 ion-text color="secondary">Genero</h6>
     <ion-row class="borders">
       <ion-col>
-        <span ion-text color="texto">{{md.popular}}</span>
+        <p style="display: inline-block" *ngFor="let g of genero" ion-text color="texto" padding>{{g.name}}</p>
       </ion-col>
     </ion-row>
-    
+    <h6 ion-text color="secondary">Colección</h6>
+    <ion-row class="borders">
+      <ion-col>
+        <img [src]="urlImagen +md.coleccion_poster" alt="">
+        <p ion-text color="texto">{{md.coleccion.name}}</p>
+      </ion-col>
+    </ion-row>
+    <h6 ion-text color="secondary">Web de interes</h6>
+    <ion-row class="borders">
+      <ion-col>
+        <a href="{{md.ver}}" ion-text color="texto">Web oficial</a>
+      </ion-col>
+    </ion-row>
   </ion-grid>
   
 </ion-content>
