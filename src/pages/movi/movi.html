@@ -2,7 +2,7 @@
   <ion-navbar color="secondary">
     <ion-title>movi</ion-title>
   </ion-navbar>
-<ion-searchbar placeholder="Search Movi"></ion-searchbar>
+<ion-searchbar #inp placeholder="Search Movi" animated="true" (change)="onInput(inp.value)"></ion-searchbar>
 </ion-header>
 
 

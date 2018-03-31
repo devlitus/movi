@@ -22,7 +22,6 @@
         <p ion-text color="secondary">Fecha de lanzamiento: <br><span ion-text color="texto">{{md.fecha | date:'dd-MM-yyyy'}}</span></p>
         <p ion-text color="secondary">Duración de la película: <br><span ion-text color="texto">{{md.tiempo}} minutos</span></p>
         <p ion-text color="secondary">Popularidad: <br><span ion-text color="texto">{{md.popular}}</span></p>
-        
       </ion-col>
     </ion-row>
     <h6 ion-text color="secondary">Sinopsis</h6>
@@ -32,24 +31,15 @@
       </ion-col>
     </ion-row>
     <h6 ion-text color="secondary">Productoras</h6>
-    <ion-row class="borders" nowrap justify-content-around>
+    <ion-row class="borders" wrap justify-content-around>
       <ion-col *ngFor="let c of companias">
-        <ion-card>
-          <img [src]="logo+c.logo" alt="">
-        </ion-card>
+        <img [src]="logo+c.logo" alt="">
       </ion-col>
     </ion-row>
     <h6 ion-text color="secondary">Genero</h6>
-    <ion-row class="borders">
+    <ion-row class="borders" nowrap justify-content-around>
       <ion-col>
-        <p style="display: inline-block" *ngFor="let g of genero" ion-text color="texto" padding>{{g.name}}</p>
-      </ion-col>
-    </ion-row>
-    <h6 ion-text color="secondary">Colección</h6>
-    <ion-row class="borders">
-      <ion-col>
-        <img [src]="urlImagen +md.coleccion_poster" alt="">
-        <p ion-text color="texto">{{md.coleccion.name}}</p>
+        <p style="display: inline-block;" *ngFor="let g of genero" ion-text color="texto" padding>{{g.name}}</p>
       </ion-col>
     </ion-row>
     <h6 ion-text color="secondary">Web de interes</h6>

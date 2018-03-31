@@ -39,7 +39,7 @@ export class ModalMoviPage {
     let base_url = config.base_url;
     let profile_sizes =config.profile_sizes[0];
     let poster = config.poster_sizes[1];
-    let logo = config.logo_sizes[2]; 
+    let logo = config.logo_sizes[1]; 
     this.urlImagen = base_url+poster;
     this.logo = base_url+logo;
   }
@@ -53,11 +53,12 @@ export class ModalMoviPage {
     .catch(error => console.log('Error promisa detalle', error));
   }
   setDetailMovi(data){
+    console.log(data);
     let detail;
     let companias = data.production_companies;
     this.detalleCompania(companias);
     this.setGenero(data.genres);
-    console.log(data);
+    let popu = Math.round(data.popularity);
     detail =  {
       'imagen': data.poster_path,
       'original_leng': data.original_language,
@@ -65,10 +66,8 @@ export class ModalMoviPage {
       'sinopsis': data.overview,
       'fecha': data.release_date,
       'tiempo': data.runtime,
-      'popular': data.popularity,
+      'popular': popu,
       'ver': data.homepage,
-      'coleccion': data.belongs_to_collection.name,
-      'coleccion_poster': data.belongs_to_collection.poster_path
     }
     this.detalles.push(detail);
     this.titulo = data.title;

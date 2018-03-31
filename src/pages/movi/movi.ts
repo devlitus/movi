@@ -1,10 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavParams, ModalController, InfiniteScroll } from 'ionic-angular';
+import { IonicPage, NavParams, ModalController, InfiniteScroll, NavController } from 'ionic-angular';
 //Providers
 import { ConfigProvider } from "../../providers/config/config";
 import { MoviProvider } from "../../providers/movi/movi";
 //pages
-import { ModalMoviPage } from "../index-page";
+import { ModalMoviPage, SearchMoviPage } from "../index-page";
 
 @IonicPage()
 @Component({
@@ -19,6 +19,7 @@ export class MoviPage {
 
   constructor(
     public navParams: NavParams,
+    public navCtrl: NavController,
     public modalCtrl: ModalController,
     private _moviService: MoviProvider,
     private _confiService: ConfigProvider) {
@@ -65,6 +66,9 @@ export class MoviPage {
       } 
       this.movi.push(dataMovi);
     }
+  }
+  onInput(name){
+    this.navCtrl.push(SearchMoviPage, {name}) 
   }
   detailMovi(id){
     let modal = this.modalCtrl.create(ModalMoviPage, {id});
