@@ -1,12 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, InfiniteScroll, ModalController } from 'ionic-angular';
+import { NavController, NavParams, InfiniteScroll, ModalController } from 'ionic-angular';
 //providers
 import { ConfigProvider } from '../../providers/config/config';
 import { SeriesProvider } from '../../providers/series/series';
 //pages
 import { ModalSeriesPage } from "../index-page";
 
-@IonicPage()
 @Component({
   selector: 'page-series',
   templateUrl: 'series.html',

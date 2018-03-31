@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 //providers
 import { ConfigProvider } from '../../providers/config/config';
 import { SeriesProvider } from '../../providers/series/series';
 
-@IonicPage()
+
 @Component({
   selector: 'page-modal-series',
   templateUrl: 'modal-series.html',

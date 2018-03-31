@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 //providers
 import { MoviProvider } from "../../providers/movi/movi";
 import { ConfigProvider } from '../../providers/config/config';
 
-@IonicPage()
+
 @Component({
   selector: 'page-modal-movi',
   templateUrl: 'modal-movi.html',
