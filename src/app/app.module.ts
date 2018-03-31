@@ -16,7 +16,8 @@ import { HomePage,
          SeriesPage, 
          ModalMoviPage, 
          ModalSeriesPage,
-         SearchMoviPage } from "../pages/index-page";
+         SearchMoviPage,
+         SearchTvPage } from "../pages/index-page";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HomePage,
     SeriesPage,
     ModalMoviPage,
     ModalSeriesPage,
-    SearchMoviPage
+    SearchMoviPage,
+    SearchTvPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { HomePage,
     SeriesPage,
     ModalMoviPage,
     ModalSeriesPage,
-    SearchMoviPage
+    SearchMoviPage,
+    SearchTvPage
   ],
   providers: [
     StatusBar,

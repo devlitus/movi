@@ -4,7 +4,7 @@ import { NavController, NavParams, InfiniteScroll, ModalController } from 'ionic
 import { ConfigProvider } from '../../providers/config/config';
 import { SeriesProvider } from '../../providers/series/series';
 //pages
-import { ModalSeriesPage } from "../index-page";
+import { ModalSeriesPage, SearchTvPage } from "../index-page";
 
 @Component({
   selector: 'page-series',
@@ -65,6 +65,11 @@ export class SeriesPage {
     console.log(id);
     let modal = this.modalCtrl.create(ModalSeriesPage, {id});
     modal.present();
+  }
+  onInput(series){
+    if(series !== ''){
+      this.navCtrl.push(SearchTvPage, {series});
+    } 
   }
 
 }

@@ -1,17 +1,20 @@
 <ion-header>
+
   <ion-navbar color="secondary">
-    <ion-title>Search-movi</ion-title>
+    <ion-title>search-tv</ion-title>
   </ion-navbar>
+
 </ion-header>
+
 
 <ion-content class="content" padding>
   <ion-list>
-    <ion-item color="primary" *ngFor="let b of busqueda">
+    <ion-item color="primary" *ngFor="let t of tv">
       <ion-avatar item-start>
-        <img [src]="imagen+b.poster">
+        <img [src]="imagen+t.imagen">
       </ion-avatar>
-      <h2>{{b.titulo}}</h2>
-      <p>{{b.fecha | date: 'dd-MM-yyyy'}}</p>
+      <h2>{{t.titulo}}</h2>
+      <p>{{t.fecha | date: 'dd-MM-yyyy'}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -3,7 +3,7 @@
   <ion-navbar color="secondary">
     <ion-title>Series</ion-title>
   </ion-navbar>
-  <ion-searchbar placeholder="Search Series"></ion-searchbar>
+  <ion-searchbar placeholder="Search Series" #inp placeholder="Search Movi" animated="true" (change)="onInput(inp.value)"></ion-searchbar>
 </ion-header>
 
 

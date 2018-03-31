@@ -67,7 +67,9 @@ export class MoviPage {
     }
   }
   onInput(name){
-    this.navCtrl.push(SearchMoviPage, {name}) 
+    if(name !== ''){
+      this.navCtrl.push(SearchMoviPage, {name});
+    } 
   }
   detailMovi(id){
     let modal = this.modalCtrl.create(ModalMoviPage, {id});

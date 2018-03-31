@@ -12,6 +12,9 @@ export class SeriesProvider {
       this.http.get('https://api.themoviedb.org/3/tv/popular?api_key='+this.apiKey+'&language=es-ES&page='+pages)
       .subscribe(data => {
         resolve(data['results']);
+        if (data['success'] == false) {
+          reject(console.error(data['status_message']));
+        } 
       })
     })
     return promise;
@@ -21,8 +24,20 @@ export class SeriesProvider {
       this.http.get('https://api.themoviedb.org/3/tv/'+id+'?api_key='+this.apiKey+'&language=es-ES&append_to_response=videos,images')
       .subscribe(data => {
         resolve(data);
-        if (data['status_code'] == 7) {
-          reject(console.error(data['status_message']))
+        if (data['success'] == false) {
+          reject(console.error(data['status_message']));
+        }
+      })
+    })
+    return promise;
+  }
+  searchSeries(serie){
+    let promise = new Promise((resolve, reject) => {
+      this.http.get('https://api.themoviedb.org/3/search/tv?api_key='+this.apiKey+'&language=es-ES&query='+serie+'&page=1')
+      .subscribe(data => {
+        resolve(data['results']);
+        if (data['success'] == false) {
+          reject(console.error(data['status_message']));
         }
       })
     })
