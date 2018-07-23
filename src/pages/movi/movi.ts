@@ -14,6 +14,7 @@ export class MoviPage {
   @ViewChild(InfiniteScroll) infiniteScroll: InfiniteScroll;
   public urlImagen;
   public movi: any = [];
+  public latestMovi: any = [];
   public pages = 0;
 
   constructor(
@@ -27,14 +28,14 @@ export class MoviPage {
 
   ionViewDidLoad() {
     this.getConfig();
-    this.getMovi();
+    this.getMoviPopular();
   }
   getConfig(){
     this._confiService.config()
     .then(data => {
       this.setConfig(data);
     })
-    .catch(error => console.error('Error en config provider'));
+    .catch(error => console.error('Error en config provider', error));
   }
   setConfig(data){
     let config = data;
@@ -42,7 +43,7 @@ export class MoviPage {
     let fondo = config.backdrop_sizes[1]; 
     return this.urlImagen = base_url+fondo;
   }
-  getMovi(){
+  getMoviPopular(){
     this.pages = this.pages+1;
     return this.infiniteScroll.waitFor(
       this._moviService.movi(this.pages)
@@ -56,7 +57,7 @@ export class MoviPage {
     }));
   }
   setMovi(data){
-    let dataMovi;
+    let dataMovi ;
     for (const m of data) {
       dataMovi = {
         'id': m.id,

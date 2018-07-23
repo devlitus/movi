@@ -12,14 +12,26 @@
 </ion-header>
 
 <ion-content class="content card-background-page" padding>
-  <ion-grid *ngFor="let md of detalles">
+    <ion-grid *ngFor="let md of detalles">
+      <ion-card>
+          <img [src]="urlImagen + md.poster" (click)="playVideo(md.video)" />
+         <!--  <ion-card-content>
+            <ion-card-title>
+              Nine Inch Nails Live
+              </ion-card-title>
+            <p>
+              The most popular industrial group ever, and largely
+              responsible for bringing the music to a mass audience.
+            </p>
+          </ion-card-content> -->
+        </ion-card>
     <ion-row>
       <ion-col>
         <img [src]="urlImagen + md.imagen" alt="">
       </ion-col>
       <ion-col ion-text color="secondary">
         <p ion-text color="secondary">Título: <br><span ion-text color="texto">{{md.titulo}}</span></p>
-        <p ion-text color="secondary">Fecha de lanzamiento: <br><span ion-text color="texto">{{md.fecha | date:'dd-MM-yyyy'}}</span></p>
+        <p ion-text color="secondary">Fecha de lanzamiento: <br><span ion-text color="texto">{{md.fecha |date:'dd-MM-yyyy'}}</span></p>
         <p ion-text color="secondary">Duración de la película: <br><span ion-text color="texto">{{md.tiempo}} minutos</span></p>
         <p ion-text color="secondary">Popularidad: <br><span ion-text color="texto">{{md.popular}}</span></p>
       </ion-col>

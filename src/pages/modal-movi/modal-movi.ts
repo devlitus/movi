@@ -3,6 +3,7 @@ import { NavParams, ViewController } from 'ionic-angular';
 //providers
 import { MoviProvider } from "../../providers/movi/movi";
 import { ConfigProvider } from '../../providers/config/config';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 
 @Component({
@@ -10,18 +11,19 @@ import { ConfigProvider } from '../../providers/config/config';
   templateUrl: 'modal-movi.html',
 })
 export class ModalMoviPage {
-  public detalles: any[]=[];
+  public detalles: any =[];
   public urlImagen;
   public titulo;
-  public companias: any[]=[];
-  public genero: any[]=[];
+  public companias: any =[];
+  public genero: any =[];
+  public videos: string;
   public logo;
   constructor(
     public viewCtrl: ViewController, 
     public navParams: NavParams, 
     private _moviDetail: MoviProvider,
-    private _config: ConfigProvider) {
-  }
+    private _config: ConfigProvider,
+    private youtube: YoutubeVideoPlayer) {}
 
   ionViewDidLoad() {
     this.getConfig();
@@ -37,7 +39,7 @@ export class ModalMoviPage {
   setConfig(data){
     let config = data;
     let base_url = config.base_url;
-    let profile_sizes =config.profile_sizes[0];
+    // let profile_sizes =config.profile_sizes[0];
     let poster = config.poster_sizes[1];
     let logo = config.logo_sizes[1]; 
     this.urlImagen = base_url+poster;
@@ -55,9 +57,9 @@ export class ModalMoviPage {
   setDetailMovi(data){
     console.log(data);
     let detail;
-    let companias = data.production_companies;
-    this.detalleCompania(companias);
+    this.detalleCompania(data.production_companies);
     this.setGenero(data.genres);
+    // this.playVideo();
     let popu = Math.round(data.popularity);
     detail =  {
       'imagen': data.poster_path,
@@ -68,6 +70,8 @@ export class ModalMoviPage {
       'tiempo': data.runtime,
       'popular': popu,
       'ver': data.homepage,
+      'poster': data.backdrop_path,
+      'video': data.videos.results[0].key
     }
     this.detalles.push(detail);
     this.titulo = data.title;
@@ -94,8 +98,8 @@ export class ModalMoviPage {
       this.genero.push(generos);
     }
   }
-  cerrarModal(){
-    this.viewCtrl.dismiss();
+  playVideo(data){
+    this.youtube.openVideo(data);
   }
 
 }

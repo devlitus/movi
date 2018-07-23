@@ -7,15 +7,13 @@
 
 
 <ion-content class="content card-background-page">
-<ion-list>
-  <ion-item color="primary" *ngFor="let m of movi">
-      <ion-card (tap)="detailMovi(m.id)">
+  
+      <ion-card (tap)="detailMovi(m.id)" *ngFor="let m of movi">
         <img [src]="urlImagen + m.imagen" />
         <div ion-text color="texto" class="card-title">{{m.titulo}}</div>
       </ion-card>
-  </ion-item>
-</ion-list>
-<ion-infinite-scroll (ionInfinite)="getMovi()">
+
+<ion-infinite-scroll (ionInfinite)="getMoviPopular()">
   <ion-infinite-scroll-content loadingSpinner="bubbles"
   loadingText="Loading more data..."></ion-infinite-scroll-content>
 </ion-infinite-scroll>   
