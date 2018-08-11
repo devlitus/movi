@@ -101,5 +101,8 @@ export class ModalMoviPage {
   playVideo(data){
     this.youtube.openVideo(data);
   }
+  closeModal(){
+    this.viewCtrl.dismiss();
+  }
 
 }

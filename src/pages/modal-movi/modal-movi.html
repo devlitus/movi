@@ -1,10 +1,10 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>{{titulo}}</ion-title>
     <ion-buttons>
-      <button ion-button icon-only (tap)="cerrarModal()">
-        <ion-icon name="arrow-back"></ion-icon>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="arrow-back" ></ion-icon>
+        <ion-title>{{titulo}}</ion-title>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -13,17 +13,9 @@
 
 <ion-content class="content card-background-page" padding>
     <ion-grid *ngFor="let md of detalles">
-      <ion-card>
-          <img [src]="urlImagen + md.poster" (click)="playVideo(md.video)" />
-         <!--  <ion-card-content>
-            <ion-card-title>
-              Nine Inch Nails Live
-              </ion-card-title>
-            <p>
-              The most popular industrial group ever, and largely
-              responsible for bringing the music to a mass audience.
-            </p>
-          </ion-card-content> -->
+    <ion-card  *ngIf="md.video !== '' else alert">
+          <img [src]="urlImagen + md.poster" (tab)="playVideo(md.video)" />
+          <div class="card-title"><ion-icon name="play"></ion-icon></div>
         </ion-card>
     <ion-row>
       <ion-col>
@@ -43,15 +35,23 @@
       </ion-col>
     </ion-row>
     <h6 ion-text color="secondary">Productoras</h6>
-    <ion-row class="borders" wrap justify-content-around>
+    <ion-row class="border" wrap justify-content-around>
       <ion-col *ngFor="let c of companias">
-        <img [src]="logo+c.logo" alt="">
+        <ion-list>
+          <ion-item  color="alterna">
+              <ion-thumbnail item-start>
+                <img [src]="logo + c.logo" alt="">
+              </ion-thumbnail>
+              <p text-center>{{c.name}}</p>
+          </ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
     <h6 ion-text color="secondary">Genero</h6>
     <ion-row class="borders" nowrap justify-content-around>
       <ion-col>
-        <p style="display: inline-block;" *ngFor="let g of genero" ion-text color="texto" padding>{{g.name}}</p>
+          <ion-badge color="secondary" *ngFor="let g of genero">{{g.name}}</ion-badge>
+        <!-- <p style="display: inline-block;" *ngFor="let g of genero" ion-text color="texto" padding>{{g.name}}</p> -->
       </ion-col>
     </ion-row>
     <h6 ion-text color="secondary">Web de interes</h6>
