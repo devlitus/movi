@@ -12,11 +12,11 @@
 </ion-header>
 
 <ion-content class="content card-background-page" padding>
-    <ion-grid *ngFor="let md of detalles">
+  <ion-grid *ngFor="let md of detalles">
     <ion-card  *ngIf="md.video !== '' else alert">
-          <img [src]="urlImagen + md.poster" (tab)="playVideo(md.video)" />
-          <div class="card-title"><ion-icon name="play"></ion-icon></div>
-        </ion-card>
+      <img [src]="urlImagen + md.poster"  />
+      <div class="card-title"><ion-icon name="play" (tab)="playVideo(md.video)"></ion-icon></div>
+    </ion-card>
     <ion-row>
       <ion-col>
         <img [src]="urlImagen + md.imagen" alt="">
