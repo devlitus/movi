@@ -11,6 +11,7 @@ export class MoviProvider {
     
   }
   peliculas(pages){
+    console.log(pages);
     let promise = new Promise((resolve, reject) => {
       this.http.get(`${this.urlBase}movie/popular?api_key=${this.apiKey}&language=${this.lenguaje}&page=${pages}`)
       .subscribe(data => {

@@ -1,5 +1,10 @@
+<ion-content class="card-background-page">
+  <ion-card *ngFor="let peli of pelicula">
+    <img [src]="urlImagen + peli.backdrop_path" />
+    <div class="card-title">{{peli.title}}</div>
+  </ion-card>
 
-
-<ion-content padding>
-
+  <ion-infinite-scroll (ionInfinite)="getPeliculas()">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Leer más Pelis..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
