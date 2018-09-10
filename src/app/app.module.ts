@@ -12,25 +12,12 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 //pages
 import { MyApp } from './app.component';
-import { HomePage, 
-         MoviPage, 
-         SeriesPage, 
-         ModalMoviPage, 
-         ModalSeriesPage,
-         SearchMoviPage,
-         SearchTvPage } from "../pages/index-page";
-
+import { HomePage } from "../pages/home/home";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    MoviPage,
-    SeriesPage,
-    ModalMoviPage,
-    ModalSeriesPage,
-    SearchMoviPage,
-    SearchTvPage
   ],
   imports: [
     BrowserModule,
@@ -41,12 +28,6 @@ import { HomePage,
   entryComponents: [
     MyApp,
     HomePage,
-    MoviPage,
-    SeriesPage,
-    ModalMoviPage,
-    ModalSeriesPage,
-    SearchMoviPage,
-    SearchTvPage
   ],
   providers: [
     StatusBar,

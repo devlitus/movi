@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { MoviPage, SeriesPage } from "../index-page";
+
 
 @Component({
   selector: 'page-home',
@@ -13,10 +13,10 @@ export class HomePage {
   }
 
   pageMovi(){
-    this.navCtrl.push(MoviPage);
+    this.navCtrl.push('PeliculasPage');
   }
   pageSeries(){
-    this.navCtrl.push(SeriesPage);
+    this.navCtrl.push('SeriesPage')
   }
 
 }
