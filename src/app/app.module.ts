@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MoviProvider } from "../providers/movi/movi";
 import { SeriesProvider } from '../providers/series/series';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 //pages
 import { MyApp } from './app.component';
@@ -34,6 +35,7 @@ import { HomePage } from "../pages/home/home";
     MoviProvider,
     SeriesProvider,
     YoutubeVideoPlayer,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

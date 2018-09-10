@@ -1,10 +1,26 @@
 <ion-content class="card-background-page">
   <ion-card *ngFor="let peli of pelicula">
-    <img [src]="urlImagen + peli.backdrop_path" />
+    <img #imagen [src]="urlImagen + peli.backdrop_path" (click)="openDetallePelicula(peli.id)"/>
     <div class="card-title">{{peli.title}}</div>
+    <ion-fab bottom left>
+      <button ion-fab mini color="danger">
+        <ion-icon name="share"></ion-icon>
+      </button>
+      <ion-fab-list side="right">
+        <button color="danger" ion-fab (click)="compartir('facebook',peli.title, imagen.src)">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button color="danger" ion-fab (click)="compartir('twitter',peli.title, imagen.src)">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+        <button color="danger" ion-fab (click)="compartir('whatsapp', peli.title, imagen.src)">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </button>
+      </ion-fab-list>
+    </ion-fab>
   </ion-card>
 
   <ion-infinite-scroll (ionInfinite)="getPeliculas()">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Leer más Pelis..."></ion-infinite-scroll-content>
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>
